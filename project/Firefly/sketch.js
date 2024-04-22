@@ -1,5 +1,5 @@
 let particles = [];
-let isFist = false;
+let isPressed = false;
 let sound;
 
 class Particle {
@@ -7,7 +7,7 @@ class Particle {
     this.p = createVector(x, y);
     this.v = createVector(random(-1, 1), random(-1, 1));
     this.a = createVector(0, 0);
-    this.radius = 1.5;
+    this.radius = 2;
     let color1 = color(225, 225, 35);
     let color2 = color(155, 155, 148);
     this.col = lerpColor(color1, color2, random(1));
@@ -17,7 +17,7 @@ class Particle {
   update() {
     this.p.add(this.v);
     this.v.add(this.a);
-    this.v.limit(3);
+    this.v.limit(2);
 
     if (this.p.x + this.radius > width) {
       this.v.x *= -1;
@@ -38,7 +38,7 @@ class Particle {
     }
 
 
-    if (isFist) {
+    if (isPressed) {
       let center = createVector(mouseX, mouseY);
       let diff = p5.Vector.sub(center, this.p);
       this.a = diff.div(5000);
@@ -57,7 +57,7 @@ class Particle {
     ellipse(this.p.x, this.p.y, this.radius * 2, this.radius * 2);
   }
 }
-// windowHeight - 5
+
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -65,8 +65,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth - 5, windowHeight - 5);
-  for (let i = 0; i < 400; i++) {
+  let window = createCanvas(windowWidth - 5, windowHeight - 5);
+  window.touchStarted(mousePressed);
+  window.touchEnded(mouseReleased);
+  for (let i = 0; i < windowWidth / 4; i++) {
     let p = new Particle(random(width), random(height));
     particles.push(p);
   }
@@ -81,12 +83,13 @@ function draw() {
   }
 }
 
-function mousePressed() {
-  isFist = true;
 
+
+function mousePressed() {
+  isPressed = true;
 }
 function mouseReleased() {
-  isFist = false;
+  isPressed = false;
 }
 
 function mouseClicked() {
