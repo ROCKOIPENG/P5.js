@@ -8,7 +8,6 @@ class Particle {
     this.v = createVector(random(-1, 1), random(-1, 1));
     this.a = createVector(0, 0);
     this.radius = 1.5;
-    //'rgb(155, 155, 148)'
     let color1 = color(225, 225, 35);
     let color2 = color(155, 155, 148);
     this.col = lerpColor(color1, color2, random(1));
