@@ -67,7 +67,6 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth - 5, windowHeight - 5);
-  sound.loop();
   for (let i = 0; i < 400; i++) {
     let p = new Particle(random(width), random(height));
     particles.push(p);
@@ -96,5 +95,6 @@ function mouseClicked() {
   }
   else {
     sound.play();
+    sound.loop();
   }
 }
