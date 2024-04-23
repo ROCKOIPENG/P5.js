@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ForYou</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4U</title>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/addons/p5.sound.js"
+      crossorigin="anonymous"
+    ></script>
+
     <style>
       html,
       body {
         height: 100%;
-      }
-
-      body {
         margin: 0;
         display: flex;
         justify-content: center;
@@ -18,19 +26,8 @@
       }
     </style>
   </head>
-
-  <body></body>
-
-  <!-- import the javascript library file(s) -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/addons/p5.sound.js"
-    crossorigin="anonymous"
-  ></script>
-
-  <script src="sketch.js"></script>
-  <!-- import the javascript sketch file -->
+  <body>
+    <div id="window"></div>
+    <script src="sketch.js"></script>
+  </body>
 </html>
