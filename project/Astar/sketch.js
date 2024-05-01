@@ -3,17 +3,13 @@ function Spot(i, j) {
     this.i = i;
     this.j = j;
 
-
     this.f = 0;
     this.g = 0;
     this.h = 0;
 
-
     this.neighbors = [];
 
-
     this.previous = undefined;
-
 
     this.wall = false;
     if (random(1) < 0.3) {
@@ -110,7 +106,6 @@ function setup() {
     }
 
 
-
     var start_x = getRandomInt(0, rows);
     var start_y = getRandomInt(0, cols);
     var end_x = getRandomInt(0, rows);
@@ -188,7 +183,7 @@ function draw() {
         closedSet[i].show(color(255, 0, 0, 50));
     }
     for (var i = 0; i < openSet.length; i++) {
-        openSet[i].show(color(0, 255, 0, 20));
+        openSet[i].show(color(0, 255, 0, 50));
     }
 
     path = [];
@@ -199,15 +194,9 @@ function draw() {
         temp = temp.previous;
     }
 
-    for (var i = 0; i < path.length; i++) {
-        path[i].show(color(0, 255, 0, 90));
-    }
     start.show(color(0, 0, 255));
     end.show(color(255, 0, 0));
 
-}
-
-function display_path() {
     noFill();
     stroke(0, 255, 0);
     strokeWeight(w / 2);
@@ -216,8 +205,4 @@ function display_path() {
         vertex(path[i].i * w + w / 2, path[i].j * h + h / 2);
     }
     endShape();
-}
-
-function mouseClicked() {
-    display_path();
 }
