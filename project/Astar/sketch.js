@@ -83,7 +83,7 @@ function getRandomInt(min, max) {
 }
 
 function setup() {
-    createCanvas(800, 800);
+    createCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
     console.log('A*');
 
     w = width / cols;
